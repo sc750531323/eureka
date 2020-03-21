@@ -24,7 +24,7 @@ import com.netflix.discovery.shared.LookupService;
  *  - provide the ability to get data about the local Client (known regions, own AZ etc)
  *  - provide the ability to register and access the healthcheck handler for the client
  *
- * @author David Liu
+ * @author David Liu 这是一个eureka client
  */
 @ImplementedBy(DiscoveryClient.class)
 public interface EurekaClient extends LookupService {
