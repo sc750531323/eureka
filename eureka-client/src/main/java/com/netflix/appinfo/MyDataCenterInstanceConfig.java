@@ -29,7 +29,7 @@ import javax.inject.Singleton;
 @Singleton
 @ProvidedBy(MyDataCenterInstanceConfigProvider.class)
 public class MyDataCenterInstanceConfig extends PropertiesInstanceConfig implements EurekaInstanceConfig {
-
+    //读取的地方在父类里
     public MyDataCenterInstanceConfig() {
     }
 

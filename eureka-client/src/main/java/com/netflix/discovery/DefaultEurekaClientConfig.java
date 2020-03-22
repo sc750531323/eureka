@@ -73,6 +73,7 @@ public class DefaultEurekaClientConfig implements EurekaClientConfig {
     private final EurekaTransportConfig transportConfig;
 
     public DefaultEurekaClientConfig() {
+        //DEFAULT_CONFIG_NAMESPACE:eureka
         this(CommonConstants.DEFAULT_CONFIG_NAMESPACE);
     }
 
@@ -80,7 +81,7 @@ public class DefaultEurekaClientConfig implements EurekaClientConfig {
         this.namespace = namespace.endsWith(".")
                 ? namespace
                 : namespace + ".";
-
+        //读eureka-client.properties配置里的信息，关注的是eureka-client的配置项，比如注册表抓取间隔
         this.configInstance = Archaius1Utils.initConfig(CommonConstants.CONFIG_FILE_NAME);
         this.transportConfig = new DefaultEurekaTransportConfig(namespace, configInstance);
     }

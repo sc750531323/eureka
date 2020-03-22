@@ -4,6 +4,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <!-- listener:项目启动入口，入口类：EurekaBootStrap-->
   <listener>
     <listener-class>com.netflix.eureka.EurekaBootStrap</listener-class>
   </listener>

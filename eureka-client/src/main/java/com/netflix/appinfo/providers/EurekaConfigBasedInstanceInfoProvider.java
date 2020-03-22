@@ -46,6 +46,7 @@ public class EurekaConfigBasedInstanceInfoProvider implements Provider<InstanceI
     public synchronized InstanceInfo get() {
         if (instanceInfo == null) {
             // Build the lease information to be passed to the server based on config
+            //契约
             LeaseInfo.Builder leaseInfoBuilder = LeaseInfo.Builder.newBuilder()
                     .setRenewalIntervalInSecs(config.getLeaseRenewalIntervalInSeconds())
                     .setDurationInSecs(config.getLeaseExpirationDurationInSeconds());
@@ -55,6 +56,7 @@ public class EurekaConfigBasedInstanceInfoProvider implements Provider<InstanceI
             }
 
             // Builder the instance information to be registered with eureka server
+            //设计模式：builder模式
             InstanceInfo.Builder builder = InstanceInfo.Builder.newBuilder(vipAddressResolver);
 
             // set the appropriate id for the InstanceInfo, falling back to datacenter Id if applicable, else hostname
@@ -113,6 +115,8 @@ public class EurekaConfigBasedInstanceInfoProvider implements Provider<InstanceI
             }
 
             // Add any user-specific metadata information
+
+            //读取自定义的元数据
             for (Map.Entry<String, String> mapEntry : config.getMetadataMap().entrySet()) {
                 String key = mapEntry.getKey();
                 String value = mapEntry.getValue();
@@ -121,7 +125,7 @@ public class EurekaConfigBasedInstanceInfoProvider implements Provider<InstanceI
                     builder.add(key, value);
                 }
             }
-
+            //将租约信息包裹在instanceInfo中
             instanceInfo = builder.build();
             instanceInfo.setLeaseInfo(leaseInfoBuilder.build());
         }

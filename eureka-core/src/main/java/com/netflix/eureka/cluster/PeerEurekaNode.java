@@ -45,6 +45,8 @@ import org.slf4j.LoggerFactory;
  * @author Karthik Ranganathan, Greg Kim
  *
  */
+
+//代表了一个server节点
 public class PeerEurekaNode {
 
     /**

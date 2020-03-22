@@ -84,11 +84,13 @@ public class PeerEurekaNodes {
                 }
         );
         try {
+//            更新集群信息
             updatePeerEurekaNodes(resolvePeerUrls());
             Runnable peersUpdateTask = new Runnable() {
                 @Override
                 public void run() {
                     try {
+
                         updatePeerEurekaNodes(resolvePeerUrls());
                     } catch (Throwable e) {
                         logger.error("Cannot update the replica Nodes", e);
